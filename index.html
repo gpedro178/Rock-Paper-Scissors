@@ -6,9 +6,18 @@
 </head>
 <body>
   <script>
-    // Your JavaScript goes here!
-    // Testing here
-    // and now here
+    //Display of game options
+    let game_options = ["Rock", "Paper", "Scissors"];
+    //Create a function to randomize the computer selection
+    //of the game options
+    function computerPlay() {
+      getRandomValues(game_options);
+    }
+    //Create a variable that store the random selection for the
+    //computer
+    let computerSelection = computerPlay();
+    //display the random computer selection in the console
+    console.log(computerSelection);
   </script>
 </body>
 </html>

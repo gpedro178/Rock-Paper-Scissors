@@ -62,9 +62,17 @@
       }
     }
 
-    console.log("Jugador: " + playerSelection);
-    console.log("Computadora: " + computerSelection);
-    console.log(playRound(playerSelection,computerSelection));
+    // Make a function that play 5 rounds calling the playRound()
+    function game() {
+      computerSelection = computerPlay(game_options);
+      console.log("Jugador: " + playerSelection);
+      console.log("Computadora: " + computerSelection);
+      console.log(playRound(playerSelection,computerSelection));
+    }
+
+    //console.log("Jugador: " + playerSelection);
+    //console.log("Computadora: " + computerSelection);
+    //console.log(playRound(playerSelection,computerSelection));
 
   </script>
 </body>

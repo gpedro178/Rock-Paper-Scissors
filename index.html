@@ -7,7 +7,7 @@
 <body>
   <script>
     //Display of game options
-    let game_options = ["Rock", "Paper", "Scissors"];
+    let game_options = ["rock", "paper", "scissors"];
 
     //Create a function to randomize the computer selection
     //of the game options
@@ -37,8 +37,13 @@
     //computer
     let computerSelection = computerPlay(game_options);
 
-    //display the random computer selection in the console
-    console.log(computerSelection);
+    // Create a variable that store the User choice and prompt the
+    // user, also convert the string to lowercase make it case
+    // insensitive
+    let playerSelection = prompt("Choose Rock, Paper or Scissors").toLowerCase();
+    console.log(playerSelection);
+
+
 
   </script>
 </body>

@@ -78,10 +78,21 @@
     function game() {
       computerSelection = computerPlay(game_options);
       playerSelection = prompt("Choose Rock, Paper or Scissors").toLowerCase();
-      playRound(playerSelection, computerSelection);
-      console.log("Jugador: " + playerSelection);
-      console.log("Computadora: " + computerSelection);
-      console.log(playRound(playerSelection, computerSelection));
+      if (playerSelection != "rock" && playerSelection != "paper" &&playerSelection != "scissors") {
+        alert("That's not a valid choice!");
+        return game();
+      } else if (playerSelection = null) {
+        alert("Maybe we can play next time");
+      } else { playRound(playerSelection, computerSelection);
+        console.log("Jugador: " + playerSelection);
+        console.log("Computadora: " + computerSelection);
+        console.log(playRound(playerSelection, computerSelection));
+
+      }
+      //playRound(playerSelection, computerSelection);
+      //console.log("Jugador: " + playerSelection);
+      //console.log("Computadora: " + computerSelection);
+      //console.log(playRound(playerSelection, computerSelection));
     }
 
     //console.log("Jugador: " + playerSelection);

@@ -8,16 +8,38 @@
   <script>
     //Display of game options
     let game_options = ["Rock", "Paper", "Scissors"];
+
     //Create a function to randomize the computer selection
     //of the game options
-    function computerPlay() {
-      getRandomValues(game_options);
+
+    ////////
+    //This function its not a true randomizer and will be biased
+    //so I will use the "Fisher-Yates Shuffle"
+    //
+    //function computerPlay(rango) {
+    //  rango.sort(() => Math.random() -0.5);
+    //  return rango[0];
+    //}
+    ////////
+    
+    // This is the "Fisher-Yates Shuffle" for more info you can
+    // refer to https://javascript.info/task/shuffle
+    function computerPlay(rango) {
+      for (let i = rango.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [rango[i], rango[j]] = [rango[j], rango[i]];
+      }
+      return rango[0]; // This will return the first value
+                       // of the array after it has been shuffled
     }
+    
     //Create a variable that store the random selection for the
     //computer
-    let computerSelection = computerPlay();
+    let computerSelection = computerPlay(game_options);
+
     //display the random computer selection in the console
     console.log(computerSelection);
+
   </script>
 </body>
 </html>

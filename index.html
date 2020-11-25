@@ -81,8 +81,8 @@
         let playerChoice = prompt("Choose Rock, Paper or Scissors");// .toLowerCase() this method applied to the prompt was
         // generating an error when the choice was cancel or Esc
 
-        // This filters the cancels and empties input
-      if ( playerChoice === undefined || playerChoice === null || playerChoice == "") {
+        // This filters the cancels input
+      if ( playerChoice === undefined || playerChoice === null ) {
         alert("Maybe we can play next time");
         stop();
         // This ask again in case of wrong input and I use the

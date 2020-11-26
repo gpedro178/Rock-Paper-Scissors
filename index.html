@@ -97,21 +97,23 @@
       }
     }
 
+    // Want to stop the game if playerSelection is undefined
+    // so I create logResults() to be use in a conditional
+    // to be able to stop the execution of logging the results
+    function logResults() {
+      roundResult = playRound(playerSelection, computerSelection);
+      console.log("Player: " + playerSelection + " VS Computer: " + computerSelection);
+      console.log(roundResult);
+    }
+
     // Make a function that play a round and declare winner
     function game() {
       computerSelection = computerPlay(game_options);
       playerSelection = askPlayer();
-      function logResults() {
-        roundResult = playRound(playerSelection, computerSelection);
-        console.log("Player: " + playerSelection + " VS Computer: " + computerSelection);
-        console.log(roundResult);
-      }
-      logResults();
-      //(askPlayer() === null) ? stop() : function() {
-        //roundResult = playRound(playerSelection, computerSelection);
-        //console.log("Player: " + playerSelection + " VS Computer: " + computerSelection);
-        //console.log(roundResult);
-      //}
+      // This conditional check if playerSelection is undefined
+      // and stop the execution with a non defined function if
+      // true else it will logResults()
+      (playerSelection === undefined) ? stop() : logResults()
     }
 
     // Make a function that play n rounds and declare a winner

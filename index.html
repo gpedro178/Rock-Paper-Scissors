@@ -145,7 +145,16 @@
         }
         // Calling score function
         score(roundResult);
-
+      }
+      // Display final winner
+      if (playerScore > computerScore) {
+        console.log("You won! Cheers!");
+      } else if (playerScore < computerScore) {
+        console.log("Computer won! Better luck next time!");
+      } else if (playerScore == 0 && computerScore == 0) {
+        return // This line avoid writing a message if game canceled
+      } else {
+        console.log("It's draw! Try again!");
       }
     }
 

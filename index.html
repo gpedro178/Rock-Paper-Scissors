@@ -128,13 +128,13 @@
         // Execute the game 
         computerSelection = computerPlay(game_options);
         playerSelection = askPlayer();
-        (playerSelection === undefined) ? stop() : logResults();
+        if (playerSelection === undefined) {break;}
+        roundResult = playRound(playerSelection, computerSelection);
+        console.log("Player: " + playerSelection + " VS Computer: " + computerSelection);
+        console.log(roundResult);
         // Function to keep score by reading result of playRound()
         function score(roundResult) {
-          if (false){//roundResult === undefined) { 
-            stop();
-          } else if (roundResult == "You lose! Don't give up! Try again!") {
-            (computerScore += 1); // Add 1 to computerScore
+          if (roundResult == "You lose! Don't give up! Try again!") { (computerScore += 1); // Add 1 to computerScore
             return console.log("Player: " + playerScore + "  Computer: " + computerScore);
           } else if (roundResult == "You win! Do you feel lucky? Try again!") { 
             (playerScore += 1); // Add 1 to playerScore
@@ -145,8 +145,7 @@
         }
         // Calling score function
         score(roundResult);
-        // Showing result in console
-        //console.log("Player: " + playerScore + "  Computer: " + computerScore);
+
       }
     }
 

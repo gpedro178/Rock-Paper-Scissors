@@ -110,10 +110,11 @@
     function game() {
       computerSelection = computerPlay(game_options);
       playerSelection = askPlayer();
+      let roundResult;
       // This conditional check if playerSelection is undefined
       // and stop the execution with a non defined function if
       // true else it will logResults()
-      (playerSelection === undefined) ? stop() : logResults()
+      (playerSelection === undefined) ? stop() : logResults();
     }
 
     // Make a function that play n rounds and declare a winner
@@ -121,28 +122,31 @@
       // Will declare score variables
       let playerScore = 0;
       let computerScore = 0;
+      let roundResult; // Will help to call an undefined result
       // Will create a loop for "rondas" times
       for (let i = rondas; i > 0; i--) {
         // Execute the game 
         computerSelection = computerPlay(game_options);
         playerSelection = askPlayer();
-        roundResult = playRound(playerSelection, computerSelection);
-        console.log("Player: " + playerSelection + " VS Computer: " + computerSelection);
-        console.log(roundResult);
-        // Will keep score by reading result of playRound()
+        (playerSelection === undefined) ? stop() : logResults();
+        // Function to keep score by reading result of playRound()
         function score(roundResult) {
-          if (roundResult == "You win! Do you feel lucky? Try again!") { 
-          return (playerScore += 1) // Add 1 to playerScore
+          if (false){//roundResult === undefined) { 
+            stop();
           } else if (roundResult == "You lose! Don't give up! Try again!") {
-            return (computerScore += 1) // Add 1 to computerScore
+            (computerScore += 1); // Add 1 to computerScore
+            return console.log("Player: " + playerScore + "  Computer: " + computerScore);
+          } else if (roundResult == "You win! Do you feel lucky? Try again!") { 
+            (playerScore += 1); // Add 1 to playerScore
+            return console.log("Player: " + playerScore + "  Computer: " + computerScore);
           } else {
-            return
+            return console.log("Player: " + playerScore + "  Computer: " + computerScore);
           }
         }
         // Calling score function
         score(roundResult);
         // Showing result in console
-        console.log("Player: " + playerScore + "  Computer: " + computerScore);
+        //console.log("Player: " + playerScore + "  Computer: " + computerScore);
       }
     }
 
